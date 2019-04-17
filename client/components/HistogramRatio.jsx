@@ -2,7 +2,6 @@ import React from 'react';
 
 const RatioHistorgram = ({data}) => {
   if (data) {
-    let currentData = data.slice(-20)
     let time = [];
     let totalCount = ['Total Count'];
     let normalRatio = ['Normal Ratio'];
@@ -12,16 +11,16 @@ const RatioHistorgram = ({data}) => {
     let noDeliveryRatio = ['No Delivery Ratio'];
     let handoffRatio = ['Handoff Ratio'];
     let refreshRatio = ['Refresh Ratio'];
-    for (let i = 1; i < currentData.length; i++) {
-      time.push(currentData[i][0]);
-      totalCount.push(currentData[i][1]);
-      normalRatio.push(currentData[i][2]);
-      blankScreenRatio.push(currentData[i][3]);
-      endEarlyRatio.push(currentData[i][4]);
-      noActRatio.push(currentData[i][5]);
-      noDeliveryRatio.push(currentData[i][6]);
-      handoffRatio.push(currentData[i][7]);
-      refreshRatio.push(currentData[i][8]);
+    for (let i = 1; i < data.length; i++) {
+      time.push(data[i][0]);
+      totalCount.push(data[i][1]);
+      normalRatio.push(data[i][2]);
+      blankScreenRatio.push(data[i][3]);
+      endEarlyRatio.push(data[i][4]);
+      noActRatio.push(data[i][5]);
+      noDeliveryRatio.push(data[i][6]);
+      handoffRatio.push(data[i][7]);
+      refreshRatio.push(data[i][8]);
     }
 
     var chart = c3.generate({

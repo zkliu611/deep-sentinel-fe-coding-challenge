@@ -2,7 +2,6 @@ import React from 'react';
 
 const RatioPieChart = ({data}) => {
   if (data) {
-    let currentData = data.slice(-20)
     let normalRatio = 0;
     let blankScreenRatio = 0;
     let endEarlyRatio = 0;
@@ -10,16 +9,16 @@ const RatioPieChart = ({data}) => {
     let noDeliveryRatio = 0;
     let handoffRatio = 0;
     let refreshRatio = 0;
-    for (let i = 1; i < currentData.length; i++) {
-      normalRatio += Number(currentData[i][2]);
-      blankScreenRatio += Number(currentData[i][3]);
-      endEarlyRatio += Number(currentData[i][4]);
-      noActRatio += Number(currentData[i][5]);
-      noDeliveryRatio += Number(currentData[i][6]);
-      handoffRatio += Number(currentData[i][7]);
-      refreshRatio += Number(currentData[i][8]);
+    for (let i = 1; i < data.length; i++) {
+      normalRatio += Number(data[i][2]);
+      blankScreenRatio += Number(data[i][3]);
+      endEarlyRatio += Number(data[i][4]);
+      noActRatio += Number(data[i][5]);
+      noDeliveryRatio += Number(data[i][6]);
+      handoffRatio += Number(data[i][7]);
+      refreshRatio += Number(data[i][8]);
     }
-    console.log(normalRatio, blankScreenRatio, endEarlyRatio, noActRatio, noDeliveryRatio, handoffRatio, refreshRatio)
+    
     var chart = c3.generate({
       bindto: '#chart5',
       data: {
@@ -37,12 +36,6 @@ const RatioPieChart = ({data}) => {
       legend: {
         position: 'right'
       }
-      // axis: {
-      //   x: {
-      //     type: 'category',
-      //     categories: time
-      //   }
-      // }
     });
 
     return (
